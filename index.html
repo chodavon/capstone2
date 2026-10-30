@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef2ed">
+  <title>Sotear Security — Penetration testing &amp; training in Cambodia</title>
+  <meta name="description" content="Clear penetration testing, phishing simulations, and practical security awareness training for small teams in Cambodia. Written scope, plain-language reports, and fix-first advice.">
+  <meta property="og:title" content="Sotear Security — Find the gaps before someone else does">
+  <meta property="og:description" content="Penetration testing and security awareness for small teams. Clear scope, plain reports, practical fixes.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sotear Security">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sotear Security — Find the gaps before someone else does.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/og-image.png">
+  <meta name="twitter:image:alt" content="Sotear Security — Find the gaps before someone else does.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+      <path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M8 21h8M12 17v4M7 8h4M7 11h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-wifi" viewBox="0 0 24 24">
+      <path d="M3.5 8.5a13 13 0 0 1 17 0M6.5 12a8.5 8.5 0 0 1 11 0M9.5 15.5a4 4 0 0 1 5 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <circle cx="12" cy="19" r="1.2" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-mail-alert" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="m4 7 8 6 8-6M15.5 12.5v3M15.5 18.2v.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24">
+      <circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M3.5 19a5.5 5.5 0 0 1 11 0M15.5 5.4a3 3 0 0 1 0 5.2M17 14.5a5.5 5.5 0 0 1 3.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24">
+      <path d="M6 3.5h8l4 4V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M14 3.5V8h4.5M8.5 12h7M8.5 15.5h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24">
+      <path d="M20 7v5h-5M4 17v-5h5M19.2 12a7.5 7.5 0 0 0-13-4.2L4 10M4.8 12a7.5 7.5 0 0 0 13 4.2L20 14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24">
+      <rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Sotear Security home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" role="presentation" focusable="false">
+            <rect width="40" height="40" rx="12" fill="currentColor"/>
+            <path d="M12 24.5c3 2.1 6.5 2.6 10.3 1.4 2.2-.7 3.5-2.1 3.5-3.8 0-2.1-2.2-3.2-6.4-4.2-4.7-1.1-6.9-2.7-6.9-5.2 0-2.7 2.8-4.7 6.8-4.7 2.6 0 5 .7 7 2.1M12 30h16" fill="none" stroke="#EEF2ED" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="31" cy="10" r="3.4" fill="#F05A38"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name" data-brand="wordmark">sotear</span>
+          <span class="brand-descriptor" data-brand="descriptor">security</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-lines" aria-hidden="true"><span></span><span></span></span>
+        <span class="nav-toggle-text">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#process">How it works</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a class="button button-small button-primary nav-cta" href="#contact">Start a conversation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Penetration testing &amp; security training · Cambodia</p>
+          <h1>Find the gaps <span class="marker">before</span> someone else does.</h1>
+          <p class="hero-lede">Clear, hands-on security testing for small teams. We check your apps, network, and people. Then we give you a short list of fixes — not a pile of jargon.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#packages">See packages <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+            <a class="text-link" href="#phishing-demo">Try the phishing example <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg></a>
+          </div>
+          <ul class="hero-proof" aria-label="How we work">
+            <li><svg class="icon icon-check" aria-hidden="true"><use href="#icon-check"></use></svg> Written scope before testing</li>
+            <li><svg class="icon icon-check" aria-hidden="true"><use href="#icon-check"></use></svg> Plain-English debrief</li>
+            <li><svg class="icon icon-check" aria-hidden="true"><use href="#icon-check"></use></svg> No hand-offs</li>
+          </ul>
+          <p class="hero-audience">Built for small businesses, hotels, schools, clinics, and NGOs.</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-shape" aria-hidden="true"></div>
+          <article class="finding-card" aria-label="Illustrative penetration test finding">
+            <div class="finding-top">
+              <span class="mono">Illustrative finding</span>
+              <span class="severity">High</span>
+            </div>
+            <p class="finding-scope">WEB APP / AUTHENTICATION</p>
+            <h2>Old password reset links never expire.</h2>
+            <p class="finding-body">A reset link still worked 14 days later. It also worked after the account password had been changed.</p>
+            <div class="risk-meter">
+              <span class="meter-label">Risk</span>
+              <span class="meter-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="off"></i></span>
+              <span class="meter-word">High</span>
+            </div>
+            <div class="finding-fix">
+              <span class="fix-label">Fix</span>
+              <p>Expire each token after one use. Invalidate it when the password changes.</p>
+            </div>
+            <div class="finding-footer">
+              <span>Possible account takeover</span>
+              <span class="mono">CVSS-style rating</span>
+            </div>
+          </article>
+          <p class="visual-note"><span aria-hidden="true"></span> Sample only. No client details are shown.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Our working standards">
+      <div class="shell trust-row">
+        <span class="trust-label">How we work</span>
+        <span>OWASP Top 10 coverage</span>
+        <span>CVSS risk ratings</span>
+        <span>Signed rules of engagement</span>
+        <span>Fix-first reports</span>
+      </div>
+    </section>
+
+    <section class="section section-light" id="services">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">What we do</p>
+            <h2>Test the things you rely on.</h2>
+          </div>
+          <p class="section-intro">Start with one service or combine a few. Every job begins with a short scope, so you know what is being tested and what is not.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg><use href="#icon-monitor"></use></svg></span>
+            <h3>Web &amp; app testing</h3>
+            <p>We look for login flaws, broken access, unsafe uploads, and the bugs a scanner will miss.</p>
+            <ul class="chip-list" aria-label="Covered assets">
+              <li>Web apps</li><li>APIs</li><li>Mobile apps</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg><use href="#icon-wifi"></use></svg></span>
+            <h3>Network &amp; Wi-Fi testing</h3>
+            <p>We check what an attacker could reach from outside your office, inside it, or on your guest Wi-Fi.</p>
+            <ul class="chip-list" aria-label="Covered areas">
+              <li>External</li><li>Internal</li><li>Wi-Fi</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg><use href="#icon-mail-alert"></use></svg></span>
+            <h3>Phishing simulation</h3>
+            <p>We send one safe, agreed test email. Your team gets a no-shame debrief, not a public leaderboard.</p>
+            <ul class="chip-list" aria-label="Included in phishing simulation">
+              <li>Agreed campaign</li><li>Click report</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg><use href="#icon-users"></use></svg></span>
+            <h3>Awareness training</h3>
+            <p>A practical session for non-technical staff: spotting scams, handling passwords, and reporting mistakes fast.</p>
+            <ul class="chip-list" aria-label="Training formats">
+              <li>Workshop</li><li>Quiz</li><li>Team plan</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg><use href="#icon-file"></use></svg></span>
+            <h3>Policy &amp; tabletop</h3>
+            <p>Short, usable security policies and a practice incident, so your team knows who does what when something goes wrong.</p>
+            <ul class="chip-list" aria-label="Policy services">
+              <li>Policies</li><li>Incident practice</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg><use href="#icon-refresh"></use></svg></span>
+            <h3>Retesting &amp; scans</h3>
+            <p>We check that fixes actually hold, and keep an eye on new exposure with a quarterly external scan.</p>
+            <ul class="chip-list" aria-label="Ongoing checks">
+              <li>Fix checks</li><li>Quarterly scan</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="process">
+      <div class="shell">
+        <div class="process-grid">
+          <div class="process-intro reveal">
+            <p class="eyebrow eyebrow-light">How it works</p>
+            <h2>Small team. Short chain. Clear answers.</h2>
+            <p>You talk to the same person from the first call to the final debrief. No hand-offs. No account manager reading from a script.</p>
+            <a class="button button-light" href="#contact">Tell us what you need <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          </div>
+
+          <ol class="process-list">
+            <li class="reveal">
+              <span class="process-num" aria-hidden="true">01</span>
+              <div>
+                <h3>Scope</h3>
+                <p>A 30-minute call. We agree the targets, dates, stop conditions, and who can approve a test.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="process-num" aria-hidden="true">02</span>
+              <div>
+                <h3>Test</h3>
+                <p>We test by hand, with safe tooling. If we find something risky, we stop and call you.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="process-num" aria-hidden="true">03</span>
+              <div>
+                <h3>Report</h3>
+                <p>A one-page summary for leaders. Evidence for technical staff. A clear fix for every finding.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="process-num" aria-hidden="true">04</span>
+              <div>
+                <h3>Retest</h3>
+                <p>Fix the important things. We check them again and tell you what still needs work.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="report-strip reveal">
+          <div class="report-title">
+            <p class="mono">Inside the report</p>
+            <p>No 100-page dump.</p>
+          </div>
+          <div class="report-part">
+            <span class="mono">01</span>
+            <p><strong>Bottom line</strong><br>What needs attention first.</p>
+          </div>
+          <div class="report-part">
+            <span class="mono">02</span>
+            <p><strong>Risk</strong><br>How serious it is, and why.</p>
+          </div>
+          <div class="report-part">
+            <span class="mono">03</span>
+            <p><strong>Evidence</strong><br>What we saw, in plain view.</p>
+          </div>
+          <div class="report-part">
+            <span class="mono">04</span>
+            <p><strong>Fix</strong><br>What to change, step by step.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-canvas" id="packages">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Packages</p>
+            <h2>Start small. Add what you need.</h2>
+          </div>
+          <div class="section-intro">
+            <p>Indicative USD ranges. We confirm the scope and send a written quote before any work starts.</p>
+            <p class="fine-print">Travel and taxes are quoted separately. No lock-in contracts.</p>
+            <p class="fine-print"><a class="inline-link" href="#finder">Not sure? Use the 3-question finder.</a></p>
+          </div>
+        </div>
+
+        <div class="package-row package-row-three">
+          <article class="package reveal">
+            <div class="package-top">
+              <p class="mono">01 / baseline</p>
+              <h3>Baseline Check</h3>
+              <p class="package-for">For a team with no security programme yet.</p>
+            </div>
+            <p class="package-price">$590<span>–</span>$1,200 <span class="currency">USD</span></p>
+            <ul class="check-list">
+              <li>External vulnerability scan</li>
+              <li>Review of one public web app</li>
+              <li>One-page risk summary</li>
+              <li>30-day fix plan</li>
+              <li>45-minute walkthrough</li>
+            </ul>
+            <a class="package-link" href="#contact" data-package="Baseline Check">Ask about Baseline Check <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          </article>
+
+          <article class="package package-featured reveal">
+            <div class="package-top">
+              <p class="mono">02 / one target</p>
+              <span class="package-badge">Core service</span>
+              <h3>Focused Penetration Test</h3>
+              <p class="package-for">For one app, API, mobile app, or small network.</p>
+            </div>
+            <p class="package-price">$1,800<span>–</span>$4,200 <span class="currency">USD</span></p>
+            <ul class="check-list">
+              <li>Manual testing, not just a scan</li>
+              <li>OWASP Top 10 coverage</li>
+              <li>Evidence and risk ratings</li>
+              <li>Practical fix guidance</li>
+              <li>Debrief with your tech team</li>
+              <li>One retest of critical fixes</li>
+            </ul>
+            <a class="package-link" href="#contact" data-package="Focused Penetration Test">Ask about a penetration test <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          </article>
+
+          <article class="package reveal">
+            <div class="package-top">
+              <p class="mono">03 / your people</p>
+              <h3>Awareness Starter</h3>
+              <p class="package-for">For teams of 10–50 who handle email and money.</p>
+            </div>
+            <p class="package-price">$650<span>–</span>$1,400 <span class="currency">USD</span></p>
+            <ul class="check-list">
+              <li>Three-hour workshop</li>
+              <li>One phishing simulation</li>
+              <li>10-question quiz</li>
+              <li>Manager summary</li>
+              <li>Take-home team checklist</li>
+            </ul>
+            <a class="package-link" href="#contact" data-package="Awareness Starter">Ask about Awareness Starter <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          </article>
+        </div>
+
+        <div class="package-row package-row-two">
+          <article class="package package-wide reveal">
+            <div class="package-top">
+              <p class="mono">04 / test + train</p>
+              <h3>Complete Check</h3>
+              <p class="package-for">For a full annual check, or a client or audit deadline.</p>
+            </div>
+            <p class="package-price">$3,600<span>–</span>$7,500 <span class="currency">USD</span></p>
+            <ul class="check-list check-list-grid">
+              <li>Focused penetration test</li>
+              <li>One-day awareness workshop</li>
+              <li>Phishing simulation</li>
+              <li>Retest of critical findings</li>
+              <li>Executive summary and roadmap</li>
+              <li>Tabletop exercise with your team</li>
+            </ul>
+            <a class="package-link" href="#contact" data-package="Complete Check">Ask about Complete Check <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          </article>
+
+          <article class="package package-wide reveal">
+            <div class="package-top">
+              <p class="mono">05 / ongoing</p>
+              <h3>Security Partner</h3>
+              <p class="package-for">For steady cover without a full-time security hire.</p>
+            </div>
+            <p class="package-price">$450<span>–</span>$900 <span class="currency">USD / month</span></p>
+            <ul class="check-list check-list-grid">
+              <li>Quarterly external vulnerability scan</li>
+              <li>Policy writing or updates</li>
+              <li>Four hours of advice each month</li>
+              <li>Annual awareness refresher</li>
+              <li>One-page monthly risk note</li>
+              <li>Priority scheduling for projects</li>
+            </ul>
+            <a class="package-link" href="#contact" data-package="Security Partner">Ask about the monthly plan <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          </article>
+        </div>
+
+        <div class="custom-scope reveal">
+          <div>
+            <p class="mono">Need a mix?</p>
+            <p>Tell us what you are protecting and we will build a small scope around it.</p>
+          </div>
+          <a class="text-link" href="#contact">Ask for a custom scope <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-finder" id="finder">
+      <div class="shell">
+        <div class="finder reveal">
+          <div class="finder-copy">
+            <p class="eyebrow">Not sure where to start?</p>
+            <h2>Three questions. One sensible start.</h2>
+            <p>No email needed. We will point you to the smallest package that fits. You can change the scope later.</p>
+          </div>
+
+          <form class="finder-form" id="finder-form">
+            <fieldset>
+              <legend>What needs attention first?</legend>
+              <div class="choice-row">
+                <label class="choice">
+                  <input type="radio" name="concern" value="app" required>
+                  <span>An app or website</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="concern" value="people">
+                  <span>Our people and email</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="concern" value="network">
+                  <span>Our office network</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="concern" value="ongoing">
+                  <span>Ongoing cover</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>When do you need it?</legend>
+              <div class="choice-row choice-row-three">
+                <label class="choice">
+                  <input type="radio" name="timing" value="soon" required>
+                  <span>This month</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="timing" value="quarter">
+                  <span>In 1–3 months</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="timing" value="exploring">
+                  <span>Just exploring</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>How many people are on your team?</legend>
+              <div class="choice-row choice-row-four">
+                <label class="choice">
+                  <input type="radio" name="team" value="small" required>
+                  <span>1–10</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="team" value="medium">
+                  <span>11–50</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="team" value="large">
+                  <span>51–200</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="team" value="xlarge">
+                  <span>200+</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button class="button button-dark" type="submit">Show my starting point <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></button>
+          </form>
+
+          <div class="finder-result" id="finder-result" aria-live="polite" hidden>
+            <p class="mono">Your starting point</p>
+            <h3 id="finder-result-title">Focused Penetration Test</h3>
+            <p class="finder-result-price" id="finder-result-price">$1,800–$4,200 USD</p>
+            <p class="finder-result-copy" id="finder-result-copy">A short scoping call will confirm the target, dates, and final quote.</p>
+            <div class="finder-result-actions">
+              <a class="button button-primary" id="finder-result-link" href="#contact">Talk about this package <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+              <button class="text-button" type="button" id="finder-reset">Change answers</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="training">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Security awareness</p>
+            <h2>Your team is the front door.</h2>
+          </div>
+          <div class="section-intro">
+            <p>Most attacks start with a message that looks normal. We teach people to pause, check, and report — without blaming anyone for clicking.</p>
+            <p class="fine-print">Full-day agenda. The smaller Awareness Starter covers the core modules in three hours.</p>
+          </div>
+        </div>
+
+        <div class="training-grid">
+          <div class="agenda-card reveal">
+            <div class="agenda-head">
+              <div>
+                <p class="mono">One-day agenda</p>
+                <h3>Practical awareness workshop</h3>
+              </div>
+              <span class="agenda-size">Up to 25 people</span>
+            </div>
+            <ol class="agenda">
+              <li><span class="agenda-time">09:00</span><div><h4>Why small teams get targeted</h4><p>The scams that actually reach Cambodian businesses.</p></div></li>
+              <li><span class="agenda-time">09:45</span><div><h4>The five pressure tricks</h4><p>Urgency, authority, fear, curiosity, and rewards.</p></div></li>
+              <li><span class="agenda-time">10:45</span><div><h4>Break</h4></div></li>
+              <li><span class="agenda-time">11:00</span><div><h4>Email, SMS, and messaging scams</h4><p>Read the sender, check the link, and know when to stop.</p></div></li>
+              <li><span class="agenda-time">12:00</span><div><h4>Lunch</h4></div></li>
+              <li><span class="agenda-time">13:00</span><div><h4>Passwords and two-step login</h4><p>Simple habits that protect the whole team.</p></div></li>
+              <li><span class="agenda-time">13:45</span><div><h4>Phishing simulation debrief</h4><p>What the test email got right, and what to do next time.</p></div></li>
+              <li><span class="agenda-time">14:30</span><div><h4>Calls, front desks, and social engineering</h4><p>Practice a real conversation and a safe response.</p></div></li>
+              <li><span class="agenda-time">15:15</span><div><h4>Quiz and team action plan</h4><p>Ten questions, one clear list of next steps.</p></div></li>
+              <li><span class="agenda-time">16:00</span><div><h4>Close</h4></div></li>
+            </ol>
+          </div>
+
+          <div class="training-side">
+            <div class="include-card reveal">
+              <p class="mono">Included in the day</p>
+              <ul class="check-list">
+                <li>Full-day workshop, on-site or online</li>
+                <li>Slide deck and trainer notes</li>
+                <li>10-question quiz and answer guide</li>
+                <li>One phishing simulation</li>
+                <li>Manager summary with next steps</li>
+                <li>Take-home team checklist</li>
+              </ul>
+            </div>
+            <blockquote class="quote-card reveal">
+              <p>“Teach people to pause, check, and report. That is the habit that stops most attacks.”</p>
+              <footer><span class="quote-line" aria-hidden="true"></span> The Sotear training principle</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-demo" id="phishing-demo">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">A 60-second test</p>
+            <h2>Would this email fool you?</h2>
+          </div>
+          <p class="section-intro">Read the sample. Then tap each red flag to see what gives it away. No real bank or brand is used.</p>
+        </div>
+
+        <div class="phish-wrap">
+          <div class="mail-card reveal" role="group" aria-label="Example phishing email">
+            <div class="mail-toolbar">
+              <span class="mono">Inbox / 1 new message</span>
+              <span class="mail-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            </div>
+            <div class="mail-meta">
+              <div class="mail-row">
+                <span class="mail-label">From</span>
+                <p><mark data-flag="sender">MekongPay Support &lt;support@mekongpay-secure.example&gt;</mark></p>
+              </div>
+              <div class="mail-row">
+                <span class="mail-label">To</span>
+                <p>you@yourcompany.com</p>
+              </div>
+              <div class="mail-row">
+                <span class="mail-label">Subject</span>
+                <p><mark data-flag="subject">Urgent: unusual sign-in on your account</mark></p>
+              </div>
+            </div>
+            <div class="mail-body">
+              <p><mark data-flag="greeting">Dear customer,</mark></p>
+              <p>We blocked a sign-in from a new device. To keep your account active, <mark data-flag="urgency">confirm your identity within 2 hours</mark>.</p>
+              <p class="mail-button"><mark data-flag="link">Verify your account</mark></p>
+              <p class="mail-small">If you did not request this, ignore this email.</p>
+              <p class="mail-sign">MekongPay Customer Care</p>
+            </div>
+            <div class="mail-footer">
+              <span class="mono">Link preview</span>
+              <p>https://mekongpay-secure.example/verify</p>
+            </div>
+          </div>
+
+          <div class="flags-panel reveal">
+            <div class="flags-head">
+              <p class="mono">Spot the tell</p>
+              <p class="flags-count"><span id="flag-count">0</span> of 5 found</p>
+            </div>
+
+            <ul class="flag-list">
+              <li>
+                <button class="flag-button" type="button" data-flag-button="sender" aria-expanded="false" aria-controls="flag-detail-sender">
+                  <span class="flag-num" aria-hidden="true">1</span>
+                  <span>The sender address is off</span>
+                  <span class="flag-plus" aria-hidden="true"></span>
+                </button>
+                <div class="flag-detail" id="flag-detail-sender" hidden>
+                  <p>The domain adds extra words before the real name. A real bank writes from its official domain, not a lookalike.</p>
+                </div>
+              </li>
+              <li>
+                <button class="flag-button" type="button" data-flag-button="subject" aria-expanded="false" aria-controls="flag-detail-subject">
+                  <span class="flag-num" aria-hidden="true">2</span>
+                  <span>It uses fear in the subject</span>
+                  <span class="flag-plus" aria-hidden="true"></span>
+                </button>
+                <div class="flag-detail" id="flag-detail-subject" hidden>
+                  <p>“Urgent” and “unusual sign-in” are designed to make you act before you check. Real security alerts do not need to frighten you.</p>
+                </div>
+              </li>
+              <li>
+                <button class="flag-button" type="button" data-flag-button="greeting" aria-expanded="false" aria-controls="flag-detail-greeting">
+                  <span class="flag-num" aria-hidden="true">3</span>
+                  <span>It greets no one</span>
+                  <span class="flag-plus" aria-hidden="true"></span>
+                </button>
+                <div class="flag-detail" id="flag-detail-greeting" hidden>
+                  <p>“Dear customer” means the same message was sent to thousands of people. A real bank can use your name.</p>
+                </div>
+              </li>
+              <li>
+                <button class="flag-button" type="button" data-flag-button="urgency" aria-expanded="false" aria-controls="flag-detail-urgency">
+                  <span class="flag-num" aria-hidden="true">4</span>
+                  <span>It gives you a short deadline</span>
+                  <span class="flag-plus" aria-hidden="true"></span>
+                </button>
+                <div class="flag-detail" id="flag-detail-urgency" hidden>
+                  <p>Two hours is meant to stop you from calling the bank or checking the app. Slow down. Verify through a channel you chose.</p>
+                </div>
+              </li>
+              <li>
+                <button class="flag-button" type="button" data-flag-button="link" aria-expanded="false" aria-controls="flag-detail-link">
+                  <span class="flag-num" aria-hidden="true">5</span>
+                  <span>The button goes to a lookalike link</span>
+                  <span class="flag-plus" aria-hidden="true"></span>
+                </button>
+                <div class="flag-detail" id="flag-detail-link" hidden>
+                  <p>The link does not go to the bank’s app or official site. Do not tap it. Open the app yourself, or type the address you know.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="flags-actions">
+              <button class="button button-dark button-small" type="button" id="reveal-flags">Reveal all 5</button>
+              <button class="text-button" type="button" id="reset-flags">Reset</button>
+            </div>
+            <p class="sr-only" aria-live="polite" id="flag-status"></p>
+            <p class="flags-note">This sample is fictional. “MekongPay” is not a real service.</p>
+          </div>
+        </div>
+
+        <div class="demo-cta reveal">
+          <p><strong>Want this run on your team?</strong> A phishing simulation is part of Awareness Starter.</p>
+          <a class="text-link" href="#packages">See the training package <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-canvas" id="faq">
+      <div class="shell faq-grid">
+        <div class="faq-intro reveal">
+          <p class="eyebrow">Questions</p>
+          <h2>Straight answers.</h2>
+          <p>If something is not here, ask. We will give you a plain answer, even if the answer is “you do not need that yet.”</p>
+          <a class="text-link" href="#contact">Ask a question <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+        </div>
+
+        <div class="faq-list reveal">
+          <details>
+            <summary>Is testing safe for our live website?</summary>
+            <div class="faq-answer"><p>We agree on a scope and test window first. We avoid destructive tests unless you approve them. For busy systems, we can test a staging copy. If we find something risky, we stop and call you.</p></div>
+          </details>
+          <details>
+            <summary>Do we need a big IT team?</summary>
+            <div class="faq-answer"><p>No. We work with whoever manages your systems, even if that is an outside IT provider. We explain findings in plain language, with technical detail only where your team needs it.</p></div>
+          </details>
+          <details>
+            <summary>How long does a test take?</summary>
+            <div class="faq-answer"><p>A single web app or small network usually takes 3–7 working days of testing, plus 3–5 days for the report. Training can be a three-hour starter or a full-day workshop. We agree dates before starting.</p></div>
+          </details>
+          <details>
+            <summary>What do we get at the end?</summary>
+            <div class="faq-answer"><p>A one-page summary for leaders, a risk rating for each finding, evidence, and a fix step. We also offer a debrief so your team can ask questions.</p></div>
+          </details>
+          <details>
+            <summary>Can you sign an NDA?</summary>
+            <div class="faq-answer"><p>Yes. We can sign your NDA or use a simple mutual agreement. Testing only begins after written authorization.</p></div>
+          </details>
+          <details>
+            <summary>Do you help after the report?</summary>
+            <div class="faq-answer"><p>Yes. We can walk your team through fixes and retest the important findings. A retest of critical fixes is included in the Focused Penetration Test.</p></div>
+          </details>
+          <details>
+            <summary>Do you sell compliance certificates?</summary>
+            <div class="faq-answer"><p>No. We help you find and fix real weaknesses. We can give you evidence to show a client or auditor, but we do not sell certificates. Ask for the team’s credentials and a sample report before you sign with any provider.</p></div>
+          </details>
+          <details>
+            <summary>How do we start?</summary>
+            <div class="faq-answer"><p>Send a short brief using the form below. Tell us what you want tested, roughly how many people you have, and your deadline. We will reply with next steps and a short scoping call.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact">
+      <div class="shell contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow eyebrow-light">Start here</p>
+          <h2>Tell us what needs checking.</h2>
+          <p class="contact-lede">A useful first message is short: what you want tested, roughly how many staff or users you have, and when you need it.</p>
+
+          <div class="contact-methods">
+            <a class="contact-method" data-contact="email-link" href="mailto:hello@yourcompany.com">
+              <span class="contact-label">Email</span>
+              <span class="contact-value" data-contact="email">hello@yourcompany.com</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+            </a>
+            <a class="contact-method" data-contact="telegram-link" href="https://t.me/yourhandle" rel="noopener">
+              <span class="contact-label">Telegram</span>
+              <span class="contact-value" data-contact="telegram">@yourhandle</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+            </a>
+            <p class="contact-location" data-contact="location">Cambodia · remote and on-site</p>
+          </div>
+
+          <ol class="next-steps">
+            <li><span>1</span> You send a short brief.</li>
+            <li><span>2</span> We reply with questions or a scoping call.</li>
+            <li><span>3</span> You get a written quote before work starts.</li>
+          </ol>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="contact-card-head">
+            <p class="mono">Message builder</p>
+            <h3>Build a short brief.</h3>
+            <p>We will prepare a message you can send from your email app or copy into Telegram. You stay in control of when it is sent.</p>
+          </div>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Your name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="reach">Email or Telegram <span aria-hidden="true">*</span></label>
+                <input id="reach" name="reach" type="text" autocomplete="email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="organisation">Organisation</label>
+                <input id="organisation" name="organisation" type="text" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label for="service">What do you need? <span aria-hidden="true">*</span></label>
+                <select id="service" name="service" required>
+                  <option value="">Choose one</option>
+                  <option>Baseline Check</option>
+                  <option>Focused Penetration Test</option>
+                  <option>Awareness Starter</option>
+                  <option>Complete Check</option>
+                  <option>Security Partner</option>
+                  <option>Phishing simulation</option>
+                  <option>Security policy or tabletop</option>
+                  <option>Retest or vulnerability scan</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">What should we know? <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="5" required placeholder="For example: we have one public web app, 15 staff, and a client audit in June."></textarea>
+            </div>
+
+            <p class="form-error" id="form-error" role="alert" hidden>Please fill in the required fields before preparing your message.</p>
+
+            <button class="button button-primary button-full" type="submit">Prepare my message <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></button>
+            <p class="form-note">Send it through your own email or Telegram. Nothing is sent automatically. Contacting us does not authorize any testing.</p>
+          </form>
+
+          <div class="brief-result" id="brief-result" aria-live="polite" hidden>
+            <p class="mono">Your brief is ready</p>
+            <h3>Send it your way.</h3>
+            <p>Open it in your email app, or copy it into Telegram. Check the message before you send.</p>
+            <label class="sr-only" for="brief-text">Your prepared message</label>
+            <textarea class="brief-text" id="brief-text" rows="9" readonly></textarea>
+            <div class="brief-actions">
+              <a class="button button-dark" id="brief-email" href="mailto:hello@yourcompany.com">Open email app <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg></a>
+              <button class="button button-outline" type="button" id="copy-brief"><svg class="icon" aria-hidden="true"><use href="#icon-copy"></use></svg> Copy message</button>
+            </div>
+            <p class="copy-status" id="copy-status" aria-live="polite"></p>
+            <button class="text-button" type="button" id="edit-brief">Edit the form</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-top">
+        <a class="brand brand-light" href="#top" aria-label="Sotear Security — back to top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" role="presentation" focusable="false">
+              <rect width="40" height="40" rx="12" fill="currentColor"/>
+              <path d="M12 24.5c3 2.1 6.5 2.6 10.3 1.4 2.2-.7 3.5-2.1 3.5-3.8 0-2.1-2.2-3.2-6.4-4.2-4.7-1.1-6.9-2.7-6.9-5.2 0-2.7 2.8-4.7 6.8-4.7 2.6 0 5 .7 7 2.1M12 30h16" fill="none" stroke="#EEF2ED" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="31" cy="10" r="3.4" fill="#F05A38"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name" data-brand="wordmark">sotear</span>
+            <span class="brand-descriptor" data-brand="descriptor">security</span>
+          </span>
+        </a>
+        <p class="footer-tagline">Clear security for growing teams.<br>Serving businesses in Cambodia.</p>
+        <a class="footer-contact" data-contact="email-link" href="mailto:hello@yourcompany.com"><span data-contact="email">hello@yourcompany.com</span></a>
+      </div>
+
+      <div class="footer-grid">
+        <div>
+          <p class="footer-heading">Services</p>
+          <ul>
+            <li><a href="#services">Penetration testing</a></li>
+            <li><a href="#services">Phishing simulation</a></li>
+            <li><a href="#training">Awareness training</a></li>
+            <li><a href="#services">Policy &amp; tabletop</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Company</p>
+          <ul>
+            <li><a href="#process">How it works</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Contact</p>
+          <ul>
+            <li><a data-contact="email-link" href="mailto:hello@yourcompany.com"><span data-contact="email">hello@yourcompany.com</span></a></li>
+            <li><a data-contact="telegram-link" href="https://t.me/yourhandle" rel="noopener"><span data-contact="telegram">@yourhandle</span></a></li>
+            <li><span data-contact="location">Cambodia · remote and on-site</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Before you test</p>
+          <p class="footer-note">Only test systems you own or have written permission to test. Every engagement starts with a signed scope.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> <span data-brand="name">Sotear Security</span>. All rights reserved.</p>
+        <a href="#top">Back to top <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
