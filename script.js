@@ -338,6 +338,55 @@
   }
 
   /* ---------------------------------------------------------
+     Newsroom briefings
+  --------------------------------------------------------- */
+  var docketButtons = Array.prototype.slice.call(document.querySelectorAll("[data-briefing]"));
+
+  function activateBriefing(index, moveFocus) {
+    if (!docketButtons.length) return;
+
+    var nextIndex = Math.max(0, Math.min(index, docketButtons.length - 1));
+
+    docketButtons.forEach(function (button, buttonIndex) {
+      var isActive = buttonIndex === nextIndex;
+      var panelId = button.getAttribute("aria-controls");
+      var panel = panelId ? document.getElementById(panelId) : null;
+
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-selected", String(isActive));
+      button.tabIndex = isActive ? 0 : -1;
+
+      if (panel) panel.hidden = !isActive;
+    });
+
+    if (moveFocus) docketButtons[nextIndex].focus();
+  }
+
+  docketButtons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
+      activateBriefing(index, false);
+    });
+
+    button.addEventListener("keydown", function (event) {
+      var nextIndex = null;
+
+      if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+        nextIndex = (index + 1) % docketButtons.length;
+      } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+        nextIndex = (index - 1 + docketButtons.length) % docketButtons.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = docketButtons.length - 1;
+      }
+
+      if (nextIndex === null) return;
+      event.preventDefault();
+      activateBriefing(nextIndex, true);
+    });
+  });
+
+  /* ---------------------------------------------------------
      Contact brief
   --------------------------------------------------------- */
   var contactForm = document.getElementById("contact-form");
