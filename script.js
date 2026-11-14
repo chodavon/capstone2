@@ -139,6 +139,55 @@
   }
 
   /* ---------------------------------------------------------
+     Reading progress and section spy
+  --------------------------------------------------------- */
+  var progressFill = document.querySelector(".scroll-progress span");
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-list a[href^="#"]'));
+  var spySections = navLinks
+    .map(function (link) {
+      var target = link.getAttribute("href");
+      return target && target.length > 1 ? document.querySelector(target) : null;
+    })
+    .filter(Boolean);
+
+  function setActiveNav(activeId) {
+    navLinks.forEach(function (link) {
+      var isActive = Boolean(activeId) && link.getAttribute("href") === "#" + activeId;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function updateReadingProgress() {
+    if (!progressFill) return;
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var ratio = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    progressFill.style.transform = "scaleX(" + ratio + ")";
+
+    if (window.scrollY < 160) setActiveNav(null);
+  }
+
+  updateReadingProgress();
+  window.addEventListener("scroll", updateReadingProgress, { passive: true });
+  window.addEventListener("resize", updateReadingProgress);
+
+  if ("IntersectionObserver" in window && spySections.length) {
+    var spyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setActiveNav(entry.target.id);
+      });
+    }, { rootMargin: "-42% 0px -52% 0px", threshold: 0 });
+
+    spySections.forEach(function (section) {
+      spyObserver.observe(section);
+    });
+  }
+
+  /* ---------------------------------------------------------
      Reveal on scroll
   --------------------------------------------------------- */
   var revealItems = document.querySelectorAll(".reveal");
