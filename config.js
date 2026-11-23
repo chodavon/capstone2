@@ -1,21 +1,20 @@
 /* ------------------------------------------------------------------
    SITE SETTINGS
    Edit this file to change the on-page brand and contact details.
-   Replace the placeholder email, Telegram handle, and location
-   before publishing the site.
+   Check the email, phone number, and location before publishing.
    If you rename the business, also update the static <title> and
    social meta tags in index.html, and regenerate assets/og-image.png.
 ------------------------------------------------------------------- */
 window.SITE_CONFIG = {
   brand: {
-    wordmark: "sotear",
-    descriptor: "security",
-    name: "Sotear Security"
+    wordmark: "Grand Testing",
+    descriptor: "Digital Solution",
+    name: "Grand Testing Digital Solution"
   },
   contact: {
-    email: "hello@yourcompany.com",
-    telegramLabel: "@yourhandle",
-    telegramUrl: "https://t.me/yourhandle",
+    email: "grandtesting168@gmail.com",
+    telegramLabel: "+855 11 618 035",
+    telegramUrl: "tel:+85511618035",
     location: "Cambodia · remote and on-site"
   }
 };

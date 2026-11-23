@@ -1,4 +1,4 @@
-/* Sotear Security — site behaviour */
+/* Grand Testing Digital Solution — site behaviour */
 (function () {
   "use strict";
 
@@ -486,11 +486,11 @@
     var message = String(data.get("message") || "").trim();
 
     var lines = [
-      "Hello " + (brand.name || "Sotear Security") + ",",
+      "Hello " + (brand.name || "Grand Testing Digital Solution") + ",",
       "",
       "I would like to ask about: " + service,
       "Name: " + name,
-      "Email or Telegram: " + reach
+      "Email or phone: " + reach
     ];
 
     if (organisation) lines.push("Organisation: " + organisation);
@@ -567,7 +567,7 @@
       var text = briefText.value;
 
       function copied() {
-        if (copyStatus) copyStatus.textContent = "Copied. Paste it into your email or Telegram.";
+        if (copyStatus) copyStatus.textContent = "Copied. Paste it into your email or chat app.";
       }
 
       function fallbackCopy() {

@@ -1,5 +1,5 @@
 /* =========================================================
-   Sotear Security — visual system
+   Grand Testing Digital Solution — visual system
    Palette: soft white, indigo, violet, coral, mint
    Type: Bricolage Grotesque / Public Sans / IBM Plex Mono
 ========================================================= */
@@ -9,14 +9,14 @@
   --canvas-deep: #eef1f9;
   --surface: #ffffff;
   --surface-soft: #f9fafe;
-  --ink: #0d1224;
-  --ink-2: #1a2338;
-  --ink-soft: #55607a;
-  --ink-faint: #66708a;
-  --line: #e4e8f2;
-  --line-strong: #ccd4e5;
+  --ink: #0b1530;
+  --ink-2: #172347;
+  --ink-soft: #4d5975;
+  --ink-faint: #5f6b85;
+  --line: #e3e8f3;
+  --line-strong: #c5cfe2;
   --accent: #ff6b4a;
-  --accent-hover: #ff8567;
+  --accent-hover: #ff7f61;
   --accent-dark: #9a3412;
   --accent-soft: #ffe9e2;
   --primary: #4f46e5;
