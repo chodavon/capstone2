@@ -467,7 +467,7 @@
     if (hasOption) {
       serviceSelect.value = packageName;
       if (messageField && !messageField.value) {
-        messageField.placeholder = "I would like to know more about " + packageName + ". For example: one public web app, 15 staff, and a client audit in June.";
+        messageField.placeholder = "I would like to know more about " + packageName + ". For example: one public website, 15 staff, and a client audit in June.";
       }
     }
   }
