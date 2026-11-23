@@ -354,13 +354,13 @@ section {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  background: var(--canvas);
+  background: transparent;
   border-bottom: 1px solid transparent;
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
 .site-header.is-scrolled {
-  background: rgba(247, 248, 252, 0.96);
+  background: rgba(245, 245, 247, 0.96);
   border-bottom-color: var(--line);
   box-shadow: var(--shadow-sm);
 }
@@ -531,6 +531,14 @@ body.nav-open .site-nav {
   .nav-cta {
     width: auto;
   }
+
+  .site-header:not(.is-scrolled) .nav-list a {
+    color: #e6e6ee;
+  }
+
+  .site-header:not(.is-scrolled) .nav-list a:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
 }
 
 .scroll-progress {
@@ -555,6 +563,10 @@ body.nav-open .site-nav {
   position: relative;
   overflow: hidden;
   padding: calc(var(--header-h) + 40px) 0 56px;
+  background:
+    radial-gradient(900px 500px at 88% -10%, rgba(128, 16, 32, 0.6), transparent 60%),
+    linear-gradient(180deg, #161626 0%, var(--ink) 100%);
+  color: #f2f2f6;
 }
 
 .hero-grid-bg {
@@ -562,8 +574,8 @@ body.nav-open .site-nav {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(128, 16, 32, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(128, 16, 32, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: linear-gradient(to bottom, #000 30%, transparent 85%);
 }
@@ -677,6 +689,7 @@ body.nav-open .site-nav {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface);
+  color: var(--ink);
   box-shadow: var(--shadow-md);
 }
 
@@ -785,6 +798,44 @@ body.nav-open .site-nav {
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     gap: 64px;
   }
+}
+
+/* Dark hero text */
+
+.hero h1 {
+  color: #fff;
+}
+
+.hero h1 .marker {
+  color: var(--ink);
+}
+
+.hero .eyebrow {
+  color: #f0b7c0;
+}
+
+.hero-lede,
+.hero-proof li {
+  color: #d4d6e0;
+}
+
+.hero-audience,
+.hero .visual-note {
+  color: #9ca0b3;
+}
+
+.hero .icon-check {
+  color: #5fd6c2;
+}
+
+.hero .text-link {
+  color: #f2c4cb;
+}
+
+.hero .hero-chip {
+  background: #1c1c30;
+  border-color: #2e2e44;
+  color: #f2f2f6;
 }
 
 /* ---------- Trust strip ---------- */
